@@ -48,6 +48,9 @@
 - Subtitle hidden on < 480px
 - Canvas resizes on window resize event
 
+## Known Bugs Fixed
+- **Slot invisible after race mode**: `updateDisplay()` no llamaba a `slotScene.show()`, el container quedaba oculto al volver de race mode. Fix: agregar `slotScene.show()` en la rama slot de `updateDisplay()`.
+
 ## Deployed
 - GitHub: https://github.com/ignacioFinochietti/AzarApp-V2
 - wrangler.toml uses `new_sqlite_classes` for free plan DO migration

@@ -138,6 +138,7 @@ function updateDisplay() {
   if (state.mode === 'slot') {
     slotScene.build(opts);
     slotScene.showIdle();
+    slotScene.show();
     raceScene.hide();
   } else {
     raceScene.build(opts);
