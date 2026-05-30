@@ -7,8 +7,8 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 16px;
+  align-items: flex-start;
+  padding: 8px;
   image-rendering: pixelated;
 }
 
@@ -17,7 +17,7 @@ body {
   width: 100%;
   background: #16162a;
   border: 4px solid #2a2a4a;
-  padding: 20px;
+  padding: 12px;
   position: relative;
   box-shadow: 8px 8px 0 #0a0a15, inset 0 0 0 2px #2a2a4a;
 }
@@ -149,10 +149,11 @@ h1 {
 
 #display {
   position: relative;
-  height: 350px;
+  aspect-ratio: 780 / 340;
+  max-height: 50vh;
   background: #0f0f1a;
   border: 4px solid #2a2a4a;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   overflow: hidden;
 }
 
@@ -426,11 +427,46 @@ h1 {
 @keyframes spin { to { transform: rotate(360deg); } }
 
 @media (max-width: 640px) {
-  h1 { font-size: 11px; }
-  #app { padding: 12px; }
-  #option-input { font-size: 6px; }
-  .room-panel { padding: 18px; }
-  .qr-box img { width: 160px; height: 160px; }
+  body { padding: 4px; }
+  #app { padding: 8px; border-width: 3px; }
+  h1 { font-size: 10px; }
+  .subtitle { font-size: 5px; margin-bottom: 8px; }
+  .section-title { font-size: 6px; }
+  #option-input { font-size: 6px; padding: 5px 6px; }
+  #add-btn { font-size: 10px; padding: 4px 10px; }
+  #options-list { gap: 2px; min-height: 22px; margin-bottom: 8px; padding: 3px; }
+  .option-tag { font-size: 5px; padding: 2px 4px; }
+  .mode-btn { font-size: 6px; padding: 6px; }
+  #display { border-width: 3px; margin-bottom: 8px; max-height: 40vh; }
+  #action-btn { font-size: 8px; padding: 10px; }
+  .room-panel { padding: 14px; }
+  .room-title { font-size: 9px; }
+  .room-sub { font-size: 5px; margin-bottom: 14px; }
+  .room-btn { font-size: 7px; padding: 10px; }
+  .qr-box img { width: 140px; height: 140px; }
+  .qr-box { padding: 16px; }
+  #room-bar { font-size: 5px; padding: 4px 6px; }
+}
+
+@media (max-width: 480px) {
+  body { padding: 2px; }
+  #app { padding: 6px; border-width: 2px; box-shadow: 4px 4px 0 #0a0a15; }
+  h1 { font-size: 8px; letter-spacing: 1px; text-shadow: 2px 2px 0 #8b6914; }
+  .subtitle { display: none; }
+  #option-input { font-size: 5px; padding: 4px 5px; border-width: 2px; }
+  #add-btn { font-size: 9px; padding: 3px 8px; border-width: 2px; }
+  #options-list { min-height: 18px; }
+  .option-tag { font-size: 4px; padding: 1px 3px; gap: 2px; border-width: 1px; }
+  .mode-btn { font-size: 5px; padding: 5px; border-width: 2px; }
+  #display { border-width: 2px; margin-bottom: 6px; max-height: 35vh; }
+  #action-btn { font-size: 7px; padding: 8px; border-width: 3px; }
+  .section-title { font-size: 5px; margin-bottom: 4px; }
+  .input-group { gap: 3px; margin-bottom: 4px; }
+  #mode-selector { gap: 3px; margin-bottom: 8px; }
+  #room-bar { font-size: 5px; padding: 3px 4px; margin-bottom: 8px; }
+  .room-panel { padding: 10px; border-width: 3px; }
+  .room-title { font-size: 8px; }
+  .room-input { font-size: 6px; padding: 8px; }
 }
 
 ::-webkit-scrollbar { width: 5px; }

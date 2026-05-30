@@ -88,13 +88,22 @@ window.__triggerDecision = function(mode) {
   socket.send('trigger-decision', { mode });
 };
 
+function getCanvasSize() {
+  const container = document.getElementById('game-container');
+  const w = container.clientWidth || 780;
+  const ratio = 340 / 780;
+  const h = Math.min(Math.round(w * ratio), 340);
+  return { width: w, height: h };
+}
+
 async function initPixi() {
   if (app) return;
 
+  const { width, height } = getCanvasSize();
   app = new PIXI.Application();
   await app.init({
-    width: 780,
-    height: 340,
+    width,
+    height,
     background: '#0f0f1a',
     antialias: false,
     roundPixels: true,
@@ -110,6 +119,15 @@ async function initPixi() {
   confetti = new ConfettiEffect(app);
 
   window.__app = app;
+
+  const onResize = () => {
+    const { width: w, height: h } = getCanvasSize();
+    if (app.screen.width !== w || app.screen.height !== h) {
+      app.renderer.resize(w, h);
+      if (slotScene) updateDisplay();
+    }
+  };
+  window.addEventListener('resize', onResize);
 }
 
 function updateDisplay() {
