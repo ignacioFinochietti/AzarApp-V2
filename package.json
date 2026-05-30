@@ -1,0 +1,16 @@
+{
+  "name": "azarapp-v2",
+  "version": "2.0.0",
+  "description": "Tragamonedas y carrera de caballos multijugador en tiempo real — Cloudflare Workers + PixiJS v8",
+  "main": "src/worker.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "pixi.js": "^8.16.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

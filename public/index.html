@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azarapp</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script src="/js/networking.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pixi.js@8.x/dist/pixi.min.js"></script>
+<script src="/js/scenes/SlotScene.js"></script>
+<script src="/js/scenes/RaceScene.js"></script>
+<script src="/js/scenes/Confetti.js"></script>
+</head>
+<body>
+
+<div id="scanlines"></div>
+
+<div id="room-overlay">
+  <div class="room-panel">
+    <div class="room-title">✦ SALA PIXEL ✦</div>
+    <div class="room-sub">CREA O ÚNETE A UNA SALA</div>
+    <button class="room-btn primary" id="btn-create">🎮 CREAR SALA</button>
+    <div class="room-divider">O</div>
+    <div class="room-input-group">
+      <input class="room-input" id="room-code-input" placeholder="CÓDIGO" maxlength="6">
+      <button class="room-join-btn" id="btn-join">→</button>
+    </div>
+    <div class="room-status" id="room-status">&nbsp;</div>
+  </div>
+</div>
+
+<div id="qr-modal">
+  <div class="qr-box">
+    <img id="qr-image" src="" alt="QR">
+    <div class="qr-label">COMPARTE ESTE CÓDIGO</div>
+    <div class="qr-code-text" id="qr-code-text">------</div>
+    <button class="qr-close" id="qr-close">CERRAR</button>
+  </div>
+</div>
+
+<div id="app">
+  <div id="room-bar">
+    <span class="room-code-display">SALA: <span id="room-code-label">------</span></span>
+    <span class="room-users" id="room-users">👤 1</span>
+    <button class="room-qr-btn" id="show-qr">📱 QR</button>
+  </div>
+
+  <h1>✦ AZARAPP ✦</h1>
+  <p class="subtitle">ELIGE TU DESTINO</p>
+
+  <div class="section-title">> OPCIONES</div>
+  <div class="input-group">
+    <input type="text" id="option-input" placeholder="AÑADIR..." maxlength="20">
+    <button id="add-btn">+</button>
+  </div>
+  <div id="options-list"></div>
+
+  <div class="section-title">> MODO</div>
+  <div id="mode-selector">
+    <button class="mode-btn active" data-mode="slot">🎰 TRAGAPERRAS</button>
+    <button class="mode-btn" data-mode="race">🏇 CARRERA</button>
+  </div>
+
+  <div id="display">
+    <div id="game-container"></div>
+  </div>
+
+  <button id="action-btn">🎰 ¡GIRAR!</button>
+</div>
+
+<script src="/js/app.js"></script>
+</body>
+</html>
