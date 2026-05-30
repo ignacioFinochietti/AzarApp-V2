@@ -41,15 +41,15 @@
 - Canvas resolution respects `devicePixelRatio`
 
 ## Mobile
-- Canvas size responsive to container width (780/340 ratio, max 340px height)
-- `#display` uses `aspect-ratio: 780/340` + `max-height: 50vh` (shrinks on mobile)
+- Canvas fixed at 780x340 internal resolution; CSS scales it uniformly via `width:100%;height:100%` (aspect-ratio matches)
+- `#display` uses `aspect-ratio: 780/340` + `max-height: 50vh` (shrinks on mobile, no distortion)
 - `body { align-items: flex-start }` prevents top cutoff on small screens
 - Media queries for 640px and 480px breakpoints (smaller fonts, padding, borders)
 - Subtitle hidden on < 480px
-- Canvas resizes on window resize event
 
 ## Known Bugs Fixed
 - **Slot invisible after race mode**: `updateDisplay()` no llamaba a `slotScene.show()`, el container quedaba oculto al volver de race mode. Fix: agregar `slotScene.show()` en la rama slot de `updateDisplay()`.
+- **Canvas responsive roto**: cambiar canvas 780x340 a tamaño dinámico hacía que los textos (9px) se renderizaran sin escala, viéndose minúsculos. Fix: revertir a canvas 780x340 fijo, el CSS escala uniformemente.
 
 ## Deployed
 - GitHub: https://github.com/ignacioFinochietti/AzarApp-V2
